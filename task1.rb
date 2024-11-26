@@ -72,46 +72,51 @@ end
 
 
 def call_count_occurances(arr)
-  puts "Enter a Number: "
+  print "Enter a Number: "
   num = gets.chomp
   num = num.to_i
-  puts "Total Occurances of #{num}: #{count_occurances(arr, num)}"
+  print "Total Occurances of #{num}: #{count_occurances(arr, num)} \n"
 end
 
 
 
 
 def show_menu
+  system("clear")
 
   arr = []
 
-  puts "Enter the length of the Array: "
+  print "Enter the length of the Array: "
   length = gets.chomp.to_i
 
   for i in 0..(length-1)
-    puts "Enter Element##{i+1}: "
+    print "Enter Element##{i+1}: "
     arr << gets.chomp.to_i
   end
 
+  system("clear")
 
   while (true)
-    puts "1.Find Third Largest Number \n2.Remove Duplicates \n3.Count Occurances of a Number"
+    print "Array: #{arr} \n"
+    print "1.Find Third Largest Number \n2.Remove Duplicates \n3.Count Occurances of a Number \n0.Exit \n"
+    print "Enter Your Choice: "
     ans = gets.chomp
-
+    system("clear")
+    
     if ans == "1"
-      puts "Third Largest Number: #{largest_num(arr)}"
+      print "Third Largest Number: #{largest_num(arr)} \n"
     elsif ans == "2"
-      puts "After Removing Duplicates: #{remove_duplicates(arr)}"
+      print "After Removing Duplicates: #{remove_duplicates(arr)} \n"
     elsif ans == "3"
       call_count_occurances(arr)
     elsif ans == "0"
-      puts "Exiting..."
+      print "Exiting... \n"
       break
     else
-      puts "Invalid Input..."
+      print "Invalid Input..."
     end
 
-    puts "Press Any Key To Continue..."
+    print "Press Any Key To Continue..."
     STDIN.getc
     system("clear")
 
