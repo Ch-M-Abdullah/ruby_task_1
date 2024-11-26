@@ -1,29 +1,12 @@
 
 
 def largest_num(arr)
-  first = 0 #To Store Largest Number
-  second = 0 #To Store Second Largest Number
-  third = 0 #To Store Third Largest Number
+  
+  temp = arr.sort #Sorting The Given Array and storing it in a temporary variable
+  temp = remove_duplicates(temp)
 
-  for element in arr #Finding Largest Number
-    if element > first
-      first = element
-    end
-  end
+  return temp[-3] #Returning The Third Last Element of The Sorted Array
 
-  for element in arr #Finding 2nd Largest Number
-    if element > second && element < first
-      second = element
-    end
-  end
-
-  for element in arr #Finding 3rd Largest Number
-    if element > third && element < second
-      third = element
-    end
-  end
-
-  return third
 end
 
 
@@ -32,17 +15,9 @@ end
 def remove_duplicates(arr)
   filtered_arr = [] #This array will be returned
 
-  for element in arr #Iterating over the given array
-    duplicate = false
 
-    for number in filtered_arr #looping over the filtered array to check if the current element is already in the filtered array
-      if element == number #if the current element matches a number in the filtered array
-        duplicate = true
-        break
-      end
-    end
-
-    if !duplicate #if the current element was not found in the filtered array .i.e. it is not a duplicate
+  for element in arr
+    if !filtered_arr.include?(element) #if the current element was not found in the filtered array .i.e. it is not a duplicate
       filtered_arr << element
     end
   end
@@ -93,7 +68,6 @@ def show_menu
     print "Enter Element##{i+1}: "
     arr << gets.chomp.to_i
   end
-
   system("clear")
 
   while (true)
