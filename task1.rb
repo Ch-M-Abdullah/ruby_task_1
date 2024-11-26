@@ -93,7 +93,6 @@ def show_menu
     print "Enter Element##{i+1}: "
     arr << gets.chomp.to_i
   end
-
   system("clear")
 
   while (true)
